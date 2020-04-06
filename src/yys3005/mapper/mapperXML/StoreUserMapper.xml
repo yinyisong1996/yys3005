@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="yys3005.mapper.StoreUserMapper">
+
+    <select id="findStoreUserById" resultType="StoreUser">
+-- query customer info by id
+        select * from store_user where uid=#{uid}
+    </select>
+
+
+    <insert id="addStoreUser">
+        insert into store_user values (#{uid},#{uname},#{account_name},#{gener},#{phone},#{email},#{address})
+    </insert>
+
+</mapper>

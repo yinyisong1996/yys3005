@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="yys55:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/yys55_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="yys55" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="lib2" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="yys55/web/Web" />
+      <element id="javaee-facet-resources" facet="yys55/web/Web2" />
+    </root>
+  </artifact>
+</component>

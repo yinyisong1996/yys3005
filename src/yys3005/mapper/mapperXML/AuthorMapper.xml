@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--frame-->
+<mapper namespace="yys3005.mapper.AuthorMapper">
+
+    <select id="queryAllAuthor" resultType="Author">
+-- return author
+        select * from author
+    </select>
+
+    <select id="queryAuthorByName" resultType="Author">
+-- find author by name
+        select * from author where auther_name = #{auther_name}
+    </select>
+
+    <select id="queryAuthorById" resultType="Author">
+-- find author by id
+        select * from author where auther_id = #{auther_id}
+    </select>
+
+    <update id="updateAuthorMoney">
+-- update author money
+        update author set money=#{money} where auther_id = #{auther_id}
+    </update>
+
+
+</mapper>

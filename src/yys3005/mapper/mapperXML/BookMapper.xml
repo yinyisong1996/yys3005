@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yys3005.mapper.BookMapper">
+
+    <select id="findAllBooks" resultType="Book">
+-- query all books
+        select * from book
+    </select>
+
+    <select id="queryBookById" resultType="Book">
+-- query all books by id
+-- left join 2 tables and query from them
+        SELECT b.bid,b.bname,b.price,b.bimage,b.cid,b.del,b.page,b.ISBN,b.author_id,b.stock,a.auther_name FROM book b LEFT JOIN author a on b.author_id = a.auther_id WHERE bid = #{bid}
+    </select>
+
+    <select id="queryBookStockById" resultType="int">
+-- query all books stock by id
+        SELECT stock FROM book WHERE bid = #{bid}
+    </select>
+
+    <update id="updateBookstockById">
+-- update book stock by id
+        update book set stock=#{count} where bid=#{bid}
+    </update>
+
+    <select id="queryByCategory" resultType="Book">
+-- query all category by id
+        select * from book where cid = #{cid}
+    </select>
+
+    <update id="updateBook">
+-- update book stock by id
+        update book set bname=#{bname},price=#{price},author_id=#{author_id},cid=#{cid} where bid=#{bid}
+    </update>
+
+    <delete id="deleteBookById">
+-- delete book by id
+        delete from book where bid=#{bid}
+    </delete>
+
+    <insert id="addBook">
+-- add book
+       insert into book values(#{bid},#{bname},#{price},#{bimage},#{cid},#{del},#{page},#{ISBN},#{author_id},#{stock},#{sales})
+    </insert>
+
+
+    <select id="searchBookByItem" resultType="Book">
+-- search book by name, isbn, author, category
+        SELECT b.bid,b.bname,b.price,b.bimage,b.cid,b.del,b.page,b.ISBN,b.author_id,b.stock,b.sales,a.auther_name,c.cname FROM book b LEFT JOIN author a on b.author_id = a.auther_id LEFT JOIN category c on b.cid = c.cid WHERE b.bname LIKE #{search} or b.ISBN LIKE #{search} or a.auther_name LIKE #{search} or c.cname LIKE #{search}
+    </select>
+
+
+</mapper>

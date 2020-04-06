@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="yys3005.entity"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="yys3005/mapper/mapperXML/UserMapper.xml"/>
+        <mapper resource="yys3005/mapper/mapperXML/CategoryMapper.xml"/>
+        <mapper resource="yys3005/mapper/mapperXML/StoreUserMapper.xml"/>
+        <mapper resource="yys3005/mapper/mapperXML/BookMapper.xml"/>
+        <mapper resource="yys3005/mapper/mapperXML/OrderItemMapper.xml"/>
+        <mapper resource="yys3005/mapper/mapperXML/OrderMapper.xml"/>
+        <mapper resource="yys3005/mapper/mapperXML/AuthorMapper.xml"/>
+    </mappers>
+</configuration>

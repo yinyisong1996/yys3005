@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="yys3005.mapper.OrderMapper">
+
+    <insert id="addOrderItem">
+-- add order item
+        insert into orderitem values(#{itemID},#{count},#{subtotal},#{oid},#{bid})
+    </insert>
+    
+    <insert id="addOrder">
+-- add order
+        insert into orders values (#{oid},#{ordertime},#{alltotal},#{uid},#{address},#{state})
+    </insert>
+
+    <select id="queryOrderByUid" resultType="Order">
+-- query order by user id
+        select * from orders where uid = #{uid}
+    </select>
+
+    <select id="queryOrderItemByOrder" resultType="OrderItem">
+-- query order item by order number
+        select * from orderitem where oid = #{oid}
+    </select>
+
+    <select id="queryOrderByOid" resultType="Order">
+-- query entire order by order number
+        select * from orders where oid = #{oid}
+    </select>
+
+    <update id="updateOrderState" parameterType="String">
+-- update status
+        update orders set state = '2' where oid=#{oid}
+    </update>
+
+
+    <update id="updateOrderStateConfirm" parameterType="String">
+-- update status to confirm
+        update orders set state = '4' where oid=#{oid}
+    </update>
+
+    <delete id="deleteOrderByOid">
+-- delete order by order number
+        delete from orders where oid = #{oid}
+    </delete>
+
+
+
+</mapper>
